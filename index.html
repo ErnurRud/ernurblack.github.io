@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ернур Чёрный | Личный сайт</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- CANVAS ДЛЯ АНИМИРОВАННОГО ФОНА -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- СЕКРЕТНОЕ МОДАЛЬНОЕ ОКНО (ПАСХАЛКА) -->
+    <div id="secretModal" class="secret-modal">
+        <div class="secret-content">
+            <div class="secret-heart">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+            <h2 class="secret-title">Секретная страница</h2>
+            <p class="secret-message">Я люблю тебя ❤️</p>
+            <div class="secret-animation">
+                <span class="secret-emoji">😊</span>
+                <span class="secret-emoji">💕</span>
+                <span class="secret-emoji">✨</span>
+            </div>
+            <button class="secret-close" id="closeModal">
+                <i class="fas fa-times"></i> Закрыть
+            </button>
+            <div class="secret-code">Код: ↑ ↑ ↓ ↓ ← → ← → B A</div>
+        </div>
+    </div>
+
+    <!-- Лоадер -->
+    <div class="loader">
+        <div class="loader-text">ЗАГРУЗКА</div>
+        <div class="loader-dots">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <!-- МУЗЫКАЛЬНЫЙ ПЛЕЕР -->
+    <div class="music-player" id="musicPlayer">
+        <button class="music-btn" id="musicToggle">
+            <i class="fas fa-music"></i>
+            <span class="music-text">Включить музыку</span>
+        </button>
+        <div class="music-info" id="musicInfo">
+            <span class="music-title">Dark Synthwave</span>
+            <span class="music-artist">Midnight Dreams</span>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="/mp3/Angus_Julia_Stone_-_Santa_Monica_Dream_64372680.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Кастомный курсор -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">E.BLACK</span>
+                <span class="logo-dot"></span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Главная</a>
+                <a href="#about" class="nav-link">Обо мне</a>
+                <a href="#skills" class="nav-link">Навыки</a>
+                <a href="#facts" class="nav-link">Факты</a>
+                <a href="#clicker" class="nav-link">Кликер</a>
+                <a href="#game" class="nav-link">Игра</a>
+                <a href="#contact" class="nav-link">Контакты</a>
+            </div>
+            <div class="menu-btn">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero секция -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="greeting">
+                    <span class="wave">👋</span>
+                    <span class="greeting-text">Привет, я</span>
+                </div>
+                <h1 class="glitch-title" data-text="ЕРНУР ЧЁРНЫЙ">ЕРНУР ЧЁРНЫЙ</h1>
+                <div class="typed-wrapper">
+                    <span class="static-text">Я — </span>
+                    <span class="typed-text"></span>
+                    <span class="cursor-blink">|</span>
+                </div>
+                <p class="hero-desc">Тот, кто идёт своим путём. Не ищу лёгких путей, создаю то, что чувствую.</p>
+                <div class="hero-buttons">
+                    <a href="#facts" class="btn-primary">
+                        <span>Мои факты</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn-outline">
+                        <span>Связаться</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-box">
+                    <div class="code-line">
+                        <span class="code-keyword">const</span>
+                        <span class="code-var">me</span>
+                        <span>=</span>
+                        <span class="code-string">{</span>
+                    </div>
+                    <div class="code-line indent">
+                        <span class="code-keyword">name</span>:
+                        <span class="code-string">'Ернур'</span>,
+                    </div>
+                    <div class="code-line indent">
+                        <span class="code-keyword">status</span>:
+                        <span class="code-string">'Одинокий волк'</span>,
+                    </div>
+                    <div class="code-line indent">
+                        <span class="code-keyword">passion</span>:
+                        <span class="code-string">'Игры & Дизайн'</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="code-string">};</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Листай вниз</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Обо мне -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">01</span>
+                <h2 class="section-title">Обо мне</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <div class="image-placeholder canvas-skeleton">
+                            <canvas id="skeletonCanvas" width="200" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Кто я на самом деле?</h3>
+                    <p>Я человек, который всегда идёт против течения. Не люблю шумные компании и пустые разговоры. Мне комфортно в тишине, где я могу думать, творить и быть самим собой.</p>
+                    <p>Веб-дизайн для меня — это не просто работа. Это способ выразить свои мысли и чувства через интерфейсы. Я создаю не просто сайты, я создаю атмосферу.</p>
+                    <p>Игры — моя вторая жизнь. Они помогают мне отключаться от реальности и находить вдохновение для новых проектов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Навыки -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">02</span>
+                <h2 class="section-title">Мои навыки</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-gamepad"></i></div>
+                    <h3>Игра</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="95"></div>
+                    </div>
+                    <span class="skill-percent">95%</span>
+                    <p class="skill-desc">Игры — моя стихия. Прошёл более 200 игр, разбираюсь в механиках и геймдизайне.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-paintbrush"></i></div>
+                    <h3>Веб-Дизайнер</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="88"></div>
+                    </div>
+                    <span class="skill-percent">88%</span>
+                    <p class="skill-desc">Создаю тёмные, атмосферные интерфейсы с душой и характером.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3>Скрытность</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90"></div>
+                    </div>
+                    <span class="skill-percent">90%</span>
+                    <p class="skill-desc">Не люблю привлекать внимание. Работаю тихо, но эффективно.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-tree"></i></div>
+                    <h3>Одиночество</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="100"></div>
+                    </div>
+                    <span class="skill-percent">100%</span>
+                    <p class="skill-desc">В одиночестве я нахожу силу, вдохновение и покой.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Факты о жизни -->
+    <section id="facts" class="facts-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">03</span>
+                <h2 class="section-title">Факты о моей жизни</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <div class="fact-icon"><i class="fas fa-moon"></i></div>
+                    <div class="fact-number">01</div>
+                    <h3>Ночной образ жизни</h3>
+                    <p>Я живу ночью. Именно в темноте я чувствую себя живым. Дневной свет меня раздражает.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon"><i class="fas fa-headphones"></i></div>
+                    <div class="fact-number">02</div>
+                    <h3>Музыка в наушниках 24/7</h3>
+                    <p>Всегда в наушниках. Музыка — мой щит от внешнего мира. Предпочитаю dark synthwave и металл.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon"><i class="fas fa-ghost"></i></div>
+                    <div class="fact-number">03</div>
+                    <h3>Не люблю людей</h3>
+                    <p>Я интроверт до мозга костей. Большие компании высасывают мою энергию. Мне нужен покой.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon"><i class="fas fa-brain"></i></div>
+                    <div class="fact-number">04</div>
+                    <h3>Вечно в раздумьях</h3>
+                    <p>Моя голова никогда не замолкает. Я постоянно думаю, анализирую, придумываю что-то новое.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon"><i class="fas fa-skull"></i></div>
+                    <div class="fact-number">05</div>
+                    <h3>Тёмная эстетика</h3>
+                    <p>Обожаю всё мрачное. Чёрный цвет, готика, киберпанк — это моя стихия.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon"><i class="fas fa-dragon"></i></div>
+                    <div class="fact-number">06</div>
+                    <h3>Одиночка по жизни</h3>
+                    <p>Я выбрал этот путь сам. В одиночестве я силён. Мне никто не нужен, чтобы быть счастливым.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КЛИКЕР ИГРА -->
+    <section id="clicker" class="clicker-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🖱️</span>
+                <h2 class="section-title">Dark Clicker</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="clicker-container">
+                <div class="clicker-main">
+                    <div class="clicker-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-coins"></i>
+                            <span class="stat-label">Тёмная энергия</span>
+                            <span class="stat-value" id="darkEnergy">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="stat-label">Энергия в секунду</span>
+                            <span class="stat-value" id="energyPerSec">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-trophy"></i>
+                            <span class="stat-label">Всего кликов</span>
+                            <span class="stat-value" id="totalClicks">0</span>
+                        </div>
+                    </div>
+
+                    <div class="clicker-button-wrapper">
+                        <button class="clicker-btn" id="clickBtn">
+                            <div class="btn-glow"></div>
+                            <i class="fas fa-skull"></i>
+                            <span>КЛИКНИ</span>
+                            <small>+1 энергия</small>
+                        </button>
+                    </div>
+
+                    <div class="clicker-upgrades">
+                        <h3>Тёмные апгрейды</h3>
+                        <div class="upgrades-grid" id="upgradesGrid">
+                            <!-- Апгрейды будут добавляться через JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- МИНИ-ИГРА УГАДАЙ ЧИСЛО -->
+    <section id="game" class="game-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🎮</span>
+                <h2 class="section-title">Мини-игра</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="game-container">
+                <div class="game-card">
+                    <div class="game-header">
+                        <i class="fas fa-dice-d6"></i>
+                        <h3>Угадай число</h3>
+                        <span class="game-difficulty">Сложность: Средняя</span>
+                    </div>
+                    <div class="game-body">
+                        <p class="game-desc">Я загадал число от 1 до 100. Попробуй угадать!</p>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Попыток:</span>
+                                <span class="stat-value" id="attempts">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Лучший результат:</span>
+                                <span class="stat-value" id="bestScore">—</span>
+                            </div>
+                        </div>
+                        <div class="game-input-area">
+                            <input type="number" id="guessInput" placeholder="Введи число" min="1" max="100">
+                            <button id="guessBtn" class="game-btn">Проверить</button>
+                        </div>
+                        <div class="game-message" id="gameMessage"></div>
+                        <button id="newGameBtn" class="game-btn reset-btn">🎲 Новая игра</button>
+                    </div>
+                    <div class="game-footer">
+                        <i class="fas fa-robot"></i>
+                        <span>Компьютер загадал число...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Контакты -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">04</span>
+                <h2 class="section-title">Связаться со мной</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Но подумай, нужно ли это тебе?</h3>
+                    <p>Я не люблю пустые разговоры. Если тебе действительно есть что сказать — напиши.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>ernurrud@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-telegram"></i>
+                            <span>@ernur_rud</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-discord"></i>
+                            <span>ernur_rud</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://steamcommunity.com/id/Angela_Rud/"><i class="fab fa-steam"></i></a>
+                        <a href="https://web.telegram.org/k/#ernur_rud"><i class="fab fa-telegram"></i></a>
+                        <a href="https://vk.com/ernur_rud"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form" action="https://formsubmit.co/ernurrud@gmail.com" method="POST">
+                        <!-- Отключаем капчу (опционально) -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <!-- Скрытое поле с темой письма -->
+                        <input type="hidden" name="_subject" value="Новое сообщение с сайта Ернур Чёрный!">
+                        <!-- Перенаправление после отправки -->
+                        <input type="hidden" name="_next" value="https://ваш-сайт.com/thanks.html">
+                        <!-- Убираем подпись FormSubmit -->
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <div class="input-group">
+                            <input type="text" id="name" name="name" required>
+                            <label>Твоё имя</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" required>
+                            <label>Твой email</label>
+                        </div>
+                        <div class="input-group">
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label>Что хотел сказать?</label>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Отправить</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Ернур Чёрный. Все права защищены тьмой.</p>
+            <p class="footer-quote">Одиночество — моя сила, тьма — мой свет.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Подключаем стили и скрипты кликера -->
+    <link rel="stylesheet" href="clicker.css">
+    <script src="clicker.js"></script>
+
+     <!-- Подключаем стили и скрипты игры Угадай число -->
+    <link rel="stylesheet" href="guess-game.css">
+    <script src="guess-game.js"></script>
+</body>
+</html>

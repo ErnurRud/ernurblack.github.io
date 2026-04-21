@@ -1,0 +1,279 @@
+/* ========== КЛИКЕР ИГРА ========== */
+.clicker-section {
+    position: relative;
+    z-index: 2;
+    margin: 2rem 0;
+}
+
+.clicker-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.clicker-main {
+    background: linear-gradient(135deg, #0a0a0a, #0f0f0f);
+    border-radius: 30px;
+    border: 1px solid rgba(201, 160, 61, 0.3);
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+
+.clicker-main:hover {
+    border-color: #c9a03d;
+    box-shadow: 0 15px 50px rgba(201, 160, 61, 0.15);
+}
+
+/* Статистика */
+.clicker-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(201, 160, 61, 0.2);
+    transition: all 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    border-color: #c9a03d;
+}
+
+.stat-card i {
+    font-size: 2rem;
+    color: #c9a03d;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .stat-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0.3rem;
+}
+
+.stat-card .stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #c9a03d;
+    text-shadow: 0 0 10px rgba(201, 160, 61, 0.3);
+}
+
+/* Кнопка клика */
+.clicker-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.clicker-btn {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #2a2a2a, #0a0a0a);
+    border: 3px solid #c9a03d;
+    color: #c9a03d;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(201, 160, 61, 0.3);
+}
+
+.clicker-btn:active {
+    transform: scale(0.95);
+}
+
+.clicker-btn i {
+    font-size: 4rem;
+    z-index: 2;
+}
+
+.clicker-btn span {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+.clicker-btn small {
+    font-size: 0.8rem;
+    color: #aaa;
+    z-index: 2;
+}
+
+.btn-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(201, 160, 61, 0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.clicker-btn:active .btn-glow {
+    opacity: 1;
+    animation: pulse 0.3s ease-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Апгрейды */
+.clicker-upgrades {
+    margin-top: 2rem;
+}
+
+.clicker-upgrades h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #c9a03d;
+}
+
+.upgrades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.upgrade-card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(201, 160, 61, 0.2);
+    border-radius: 15px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.upgrade-card:hover {
+    transform: translateX(5px);
+    border-color: #c9a03d;
+    background: rgba(201, 160, 61, 0.05);
+}
+
+.upgrade-card.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.upgrade-card.disabled:hover {
+    transform: none;
+    border-color: rgba(201, 160, 61, 0.2);
+}
+
+.upgrade-icon {
+    font-size: 2rem;
+    color: #c9a03d;
+    min-width: 60px;
+    text-align: center;
+}
+
+.upgrade-info {
+    flex: 1;
+}
+
+.upgrade-name {
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.upgrade-desc {
+    font-size: 0.7rem;
+    color: #888;
+    margin-bottom: 0.3rem;
+}
+
+.upgrade-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.7rem;
+}
+
+.upgrade-stats span {
+    color: #c9a03d;
+}
+
+.upgrade-price {
+    text-align: right;
+    min-width: 80px;
+}
+
+.price-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #c9a03d;
+}
+
+.price-label {
+    font-size: 0.6rem;
+    color: #888;
+}
+
+/* Анимация для цифр */
+@keyframes countUp {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+        color: #ffd700;
+    }
+}
+
+.count-animation {
+    animation: countUp 0.3s ease-out;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .clicker-main {
+        padding: 1rem;
+    }
+    
+    .clicker-btn {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .clicker-btn i {
+        font-size: 2.5rem;
+    }
+    
+    .clicker-btn span {
+        font-size: 1rem;
+    }
+    
+    .stat-card .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .upgrades-grid {
+        grid-template-columns: 1fr;
+    }
+}
